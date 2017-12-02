@@ -1,6 +1,7 @@
 import React from "react";
 import Chart from "./Chart";
 import axios from 'axios';
+import Img from 'react-image';
 
 export default class App extends React.Component {
 
@@ -37,7 +38,7 @@ export default class App extends React.Component {
 
     return (
     <div>
-    <Image style={{width: 50, height: 50}} source={require('../images/fire.jpg')} />
+    <img src="http://www.everythingsouthcity.com/wp-content/uploads/2017/10/fire.jpg"/>
     <Chart />
     </div>);
     return <p>hello {this.state.probability}</p>;
