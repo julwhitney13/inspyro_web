@@ -8,11 +8,33 @@ export default class Chart extends React.Component {
 
   render() {
     var data = {
-      input: getRandomValue(),
+      date: new Date(),
+      CameraOutput: 1,
+      Threshold: .8
     };
 
+    var chart = {
+      point: {
+        show: false
+      },
+      axis: {
+        y: {
+          min: 0,
+          max: 1
+        }
+      },
+    }
+
     return <RTChart
-            fields={["input"]}
-            data={data} />
+    chart = {
+      chart
+    }
+    fields = {
+      ['Threshold', 'CameraOutput']
+    }
+    data = {
+      data
+    }
+    />
   }
 }
