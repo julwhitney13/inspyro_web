@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify
 import socket
 import time
+import random
 
 
 app = Flask(__name__, static_folder="../static/dist", template_folder="../static")
@@ -22,13 +23,14 @@ host = socket.gethostname()
 port = 49405
 
 # connection to hostname on the port.
-s.connect(('192.168.2.2', port))
+# s.connect(('192.168.2.2', port))
 
 
 @app.route('/api/v1.0/probability', methods=['GET'])
 def get_prob():
-    tm = s.recv(1024)
-    probs = tm.decode('utf-8')
+    # tm = s.recv(1024)
+    # probs = tm.decode('utf-8')
+    probs = random.uniform(0, 1)
     return jsonify({'probability': probs})
 
 

@@ -9,7 +9,7 @@ export default class Chart extends React.Component {
   render() {
     var data = {
       date: new Date(),
-      CameraOutput: 1,
+      CameraOutput: this.props.probability,
       Threshold: .8
     };
 

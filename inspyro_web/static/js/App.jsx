@@ -20,9 +20,9 @@ export default class App extends React.Component {
       axios.get('/api/v1.0/probability')
           .then(res => {
               var r = JSON.parse(JSON.stringify(res))
-              console.log(r)
+              // console.log(r)
               // console.log(JSON.parse(res))
-              console.log(JSON.parse(JSON.stringify(res)))
+              // console.log(JSON.parse(JSON.stringify(res)))
               this.setState({'time': Date.now(), 'probability': r.data.probability})
       })
       .catch(er => {console.log(er)})
@@ -34,13 +34,11 @@ export default class App extends React.Component {
   }
 
   render () {
-    console.log(this.state)
+    // console.log(this.state)
 
     return (
     <div>
-    <img src="http://www.everythingsouthcity.com/wp-content/uploads/2017/10/fire.jpg"/>
-    <Chart />
+    <Chart probability={this.state.probability}/>
     </div>);
-    return <p>hello {this.state.probability}</p>;
   }
 }
