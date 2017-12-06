@@ -2,12 +2,13 @@ import React from "react";
 import Chart from "./Chart";
 import axios from 'axios';
 import Img from 'react-image';
+import moment from 'moment';
 
 export default class App extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {'time': Date.now(),
+    this.state = {'time': moment().format('hh:mm:ss'),
         'probability': 0}
   }
 
@@ -16,6 +17,7 @@ export default class App extends React.Component {
     this.interval = setInterval(this.timer.bind(this), 1000)
   }
 
+
   timer() {
       axios.get('/api/v1.0/probability')
           .then(res => {
@@ -23,7 +25,7 @@ export default class App extends React.Component {
               // console.log(r)
               // console.log(JSON.parse(res))
               // console.log(JSON.parse(JSON.stringify(res)))
-              this.setState({'time': Date.now(), 'probability': r.data.probability})
+              this.setState({'time':  moment().format('hh:mm:ss'), 'probability': r.data.probability})
       })
       .catch(er => {console.log(er)})
 
@@ -38,7 +40,7 @@ export default class App extends React.Component {
 
     return (
     <div>
-    <Chart probability={this.state.probability}/>
+    <Chart time={this.state.time} probability={this.state.probability}/>
     </div>);
   }
 }
