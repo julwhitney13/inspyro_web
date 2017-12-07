@@ -20,17 +20,18 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # get local machine name
 host = socket.gethostname()
 
-port = 49405
+port = 43541
 
 # connection to hostname on the port.
-# s.connect(('192.168.2.2', port))
+s.connect(('192.168.2.2', port))
 
 
 @app.route('/api/v1.0/probability', methods=['GET'])
 def get_prob():
-    # tm = s.recv(1024)
-    # probs = tm.decode('utf-8')
-    probs = random.uniform(0, 1)
+    tm = s.recv(1024)
+    probs = tm.decode('utf-8')
+    p = random.uniform(0, 1)
+    print(p, probs)
     return jsonify({'probability': probs})
 
 
