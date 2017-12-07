@@ -20,6 +20,10 @@ const config = {
           loader: 'file-loader',
           options: {}
         }]
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },

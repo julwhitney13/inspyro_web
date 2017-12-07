@@ -38,7 +38,7 @@ export default class Chart extends React.Component {
     }
 
     render() {
-        console.log(this.values)
+        // console.log(this.values)
         var showAlert
 
         if (this.fire) {
